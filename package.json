@@ -1,6 +1,6 @@
 {
   "name": "os-mui-phone-input",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Mui phone input with country code and country flag.",
   "main": "dist/cjs/index.js",
   "scripts": {
