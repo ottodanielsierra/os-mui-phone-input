@@ -14,7 +14,6 @@ export default function OsMuiPhoneInput({onChange,...rest}: Props) {
   const [countryCode, setCountryCode] = React.useState("");
 
   function handleOnChangeCountryCode(code:string) {
-    console.log(code);    
     let currentCode = countryCodes.filter((value) => value.code == code);
     let previousCode = countryCodes.filter((value) => value.code == countryCode);
 
