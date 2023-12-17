@@ -1,15 +1,24 @@
 {
   "name": "os-mui-phone-input",
-  "version": "0.0.5",
-  "description": "Mui phone input with country code and country flag..",
+  "version": "1.0.0",
+  "description": "Mui phone input with country code and country flag.",
   "main": "dist/cjs/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "rollup": "rollup -c",
-    "build": "microbundle"
+    "rollup": "rollup -c"
   },
   "author": "Otto Sierra",
+  "keywords": [
+    "phone input",
+    "country code",
+    "react phone input",
+    "mui phone input"
+  ],
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ottodanielsierra/os-mui-phone-input"
+  },
   "peerDependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",

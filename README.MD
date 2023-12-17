@@ -12,12 +12,15 @@ npm install os-mui-phone-input
 
 The phone input is based on Mui **TextField** component and inherits all its props. you can check the official [documentation](https://mui.com/material-ui/react-text-field/#form-props) for more detailed info.
 
-### basic usage of Phone Input:
+basic usage of Phone Input:
 
 ```tsx
 import OsMuiPhoneInput from 'os-mui-phone-input'
 
 <OsMuiPhoneInput label="Phone" variant="outlined"/>
 ```
+<div align="center">
 
 ![test](img/capture.png "Screenshot")
+
+</div>

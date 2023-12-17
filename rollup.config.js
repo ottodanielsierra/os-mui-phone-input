@@ -8,13 +8,6 @@ import postcssUrl from "postcss-url";
 import terser from "@rollup/plugin-terser";
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import image from "@rollup/plugin-image";
-import postcssInlineSvg from "postcss-inline-svg";
-
-import fs from "fs-extra";
-import path from "path";
-import { hashFile } from "hasha";
-
-const IMAGES_RX = /\.(png|jpe?g|gif|webp|svg)$/;
 
 import packageJson from "./package.json" assert { type: "json" };
 
