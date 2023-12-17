@@ -13,21 +13,28 @@ export default function OsMuiPhoneInput({onChange,...rest}: Props) {
   const [value, setValue] = React.useState("");
   const [countryCode, setCountryCode] = React.useState("");
 
-  function handleOnChangeCountryCode(dial_code:string) {
-    setCountryCode(dial_code);
+  function handleOnChangeCountryCode(code:string) {
+    console.log(code);    
+    let currentCode = countryCodes.filter((value) => value.code == code);
+    let previousCode = countryCodes.filter((value) => value.code == countryCode);
+
+    let currentDialCode = currentCode[0].dial_code;
+    let previousDialCode = previousCode[0].dial_code;
+
+    setCountryCode(code);
     // Si el campo tiene datos      
     if (value) {
       // Si hay un dial_code reemplazarlo      
       if (countryCode) {
-        let newValue = value.replace(countryCode, dial_code);
+        let newValue = value.replace(previousDialCode, currentDialCode);
         phoneField.current.value = newValue;
         setValue(newValue);
         return;
       }
     }
     //Si el campo de teléfono esta vacío simplemente setear el valor
-    phoneField.current.value = dial_code;
-    setValue(dial_code);    
+    phoneField.current.value = currentDialCode;
+    setValue(currentDialCode);    
   }
 
   function handleOnChangeInput(event:any) {
@@ -41,10 +48,13 @@ export default function OsMuiPhoneInput({onChange,...rest}: Props) {
       phoneNumber = phoneNumber.substring(0, phoneNumber.length - 10);
     }
     //filtrar el código
-    let code:any[] = countryCodes.filter((value) => value.dial_code == phoneNumber)
+    let code:any[] = countryCodes.filter((value) => value.dial_code == phoneNumber);
+    
     //Si se encuentra valor retornar ese
     if (code.length) {
-      setCountryCode(code[0].dial_code);
+      //Si el dial code anterior es el mismo que el actual no hacer nada
+      if (countryCode == code[0].code) return;
+      setCountryCode(code[0].code);
     }
   }
 

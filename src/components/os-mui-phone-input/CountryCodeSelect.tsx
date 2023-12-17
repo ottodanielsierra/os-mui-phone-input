@@ -4,7 +4,7 @@ import { countryCodes } from "./countryCodes";
 import "./css/flag-icons.css"
 
 type Props = {
-  onChange: (dial_code:string) => void,
+  onChange: (code:string) => void,
   codeValue?:string
 }
 
@@ -15,7 +15,7 @@ export default function CountryCodeSelect({codeValue, onChange}: Props) {
   }
 
   let menuItems = countryCodes.map((countryCode) => {
-    return <MenuItem value={countryCode.dial_code} key={countryCode.code}><span className={"fi fi-" + countryCode.code.toLowerCase()} style={{marginRight: 10}}></span> {countryCode.name}</MenuItem>
+    return <MenuItem value={countryCode.code} key={countryCode.code}><span className={"fi fi-" + countryCode.code.toLowerCase()} style={{marginRight: 10}}></span> {countryCode.name}</MenuItem>
   });
 
   return (
@@ -29,7 +29,7 @@ export default function CountryCodeSelect({codeValue, onChange}: Props) {
         inputProps={{ 'aria-label': 'Without label' }}
         renderValue={(selected:any) => {
           if (selected) {
-            let code:any[] = countryCodes.filter((value) => value.dial_code == selected)
+            let code:any[] = countryCodes.filter((value) => value.code == selected)
             return <span className={"fi fi-" + code[0].code.toLowerCase()}></span>
           }          
           return <span className={"fi fi-xx"}></span>
