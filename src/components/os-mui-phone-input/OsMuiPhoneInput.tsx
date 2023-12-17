@@ -15,16 +15,21 @@ export default function OsMuiPhoneInput({onChange,...rest}: Props) {
 
   function handleOnChangeCountryCode(code:string) {
     let currentCode = countryCodes.filter((value) => value.code == code);
-    let previousCode = countryCodes.filter((value) => value.code == countryCode);
-
     let currentDialCode = currentCode[0].dial_code;
-    let previousDialCode = previousCode[0].dial_code;
+
+    let previousCode;
+    let previousDialCode = "";
+
+    if (countryCode) {
+      previousCode = countryCodes.filter((value) => value.code == countryCode);
+      previousDialCode = previousCode[0].dial_code;
+    }
 
     setCountryCode(code);
     // Si el campo tiene datos      
     if (value) {
       // Si hay un dial_code reemplazarlo      
-      if (countryCode) {
+      if (countryCode && previousCode) {
         let newValue = value.replace(previousDialCode, currentDialCode);
         phoneField.current.value = newValue;
         setValue(newValue);
